@@ -18,7 +18,7 @@ async def set_last_committed_offsets(redis, consumer_group, topic, committed_off
     key = f"{consumer_group}_{topic}_last_committed_offsets"
     await redis.set(key, json.dumps(committed_offsets))
 
-async def kafka_consumer_liveness_probe(bootstrap_servers, group_id, topic, redis_host, redis_port):
+async def kafka_consumer_liveness_probe(bootstrap_servers, group_id, topic):
     consumer_conf = {
         'bootstrap_servers': bootstrap_servers,
         'group_id': group_id,
@@ -81,7 +81,7 @@ async def kafka_consumer_liveness_probe(bootstrap_servers, group_id, topic, redi
 if __name__ == "__main__":
     # Replace these values with your Kafka broker, consumer group, and topic
     bootstrap_servers = settings.api_event_streaming_host
-    group_id = settings.api_assign_token
-    topic = settings.api_assign_token
+    group_id = settings.api_account_create_group
+    topic = settings.api_account_topic
    
     asyncio.run(kafka_consumer_liveness_probe(bootstrap_servers, group_id, topic))

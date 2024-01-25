@@ -1,7 +1,5 @@
 from dataclasses_avroschema.pydantic import AvroBaseModel
 from pydantic import Field, EmailStr
-from core.enums.account_enums import *
-
 
 class OTPPurposeAvro(AvroBaseModel):
     purpose: str = Field(description='The purpose of the OTP')

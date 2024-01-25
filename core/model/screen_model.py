@@ -1,7 +1,6 @@
 from dataclasses_avroschema.pydantic import AvroBaseModel
 from pydantic import Field
 from typing import Optional
-from core.enums.account_enums import *
 
 
 class Screen(AvroBaseModel):

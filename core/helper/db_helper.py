@@ -14,10 +14,10 @@ async def get_account_by_email(email: EmailStr):
     """
     
     # Filter
-    filter = {"email": email}
+    query = {"email": email}
 
     # Query
-    response = await account_col.find_one(filter=filter)
+    response = await account_col.find_one(filter=query)
 
     # Check if response is None
     if not response:
@@ -37,10 +37,10 @@ async def get_account_by_id(id: str):
     """
 
     # Filter
-    filter = {"_id": id}
+    query = {"_id": id}
 
     # Query
-    response = await account_col.find_one(filter=filter)
+    response = await account_col.find_one(filter=query)
 
     # Check if response is None
     if not response:
@@ -59,11 +59,11 @@ async def get_account_by_phone_number(phone_number: str):
     @returns {object} - A dict containing the account data
     """
     
-    # Filter
-    filter = {"phone_number": phone_number}
+    # query
+    query = {"phone_number": phone_number}
 
     # Query
-    response = await account_col.find_one(filter=filter)
+    response = await account_col.find_one(filter=query)
 
     # Check if response is None
     if not response:

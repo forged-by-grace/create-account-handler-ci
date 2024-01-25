@@ -1,7 +1,7 @@
 from dataclasses_avroschema.pydantic import AvroBaseModel
 from pydantic import Field
-from core.enums.account_enums import *
-from core.model.screen_model import *
+from core.model.screen_model import Screen
+from typing import Optional
 
 
 class Device(AvroBaseModel):
